@@ -66,6 +66,57 @@ public class FacebookUtilities
 		}
 	}
 	
+	public void authorizeUserWithCustomID()
+	{
+		String customUserID = authenticateWithCustomService();
+		
+		
+	}
+	
+	public static void authorizeUserWithCustomID(String userNick, String customID, final CreateOKUserRequestHandler requestHandler)
+	{
+		JSONObject jsonParams = new JSONObject();
+		
+		try {
+			jsonParams.put("nick", userNick);
+			jsonParams.put("custom_id", customID);
+			jsonParams.put("app_key", OpenKit.getOKAppID());
+		} catch (JSONException e) {
+			requestHandler.onFail(new Error("Error creating JSON params for request: " + e));
+		}
+		
+		OKLog.d("Creating user with custom ID");
+		
+		OKHTTPClient.postJSON("users", jsonParams, new OKJsonHttpResponseHandler() {
+			
+			@Override
+			public void onSuccess(JSONObject object) {
+				OKUser currentUser = new OKUser(object);
+				requestHandler.onSuccess(currentUser);
+			}
+			
+			@Override
+			public void onSuccess(JSONArray array) {
+				requestHandler.onFail(new Error("Error creating new OpenKit user with custom ID"));
+			}
+			
+			@Override
+			public void onFailure(Throwable error, String content) {
+				requestHandler.onFail(new Error("Error creating new OpenKit user with custom ID"));	
+			}
+			
+			@Override
+			public void onFailure(Throwable e, JSONArray errorResponse) {
+				requestHandler.onFail(new Error("Error creating new OpenKit user with custom ID"));
+			}
+			
+			@Override
+			public void onFailure(Throwable e, JSONObject errorResponse) {
+				requestHandler.onFail(new Error("Error creating new OpenKit user with custom ID"));
+			}
+		});
+	}
+	
 	/***
 	 * Gets the OKUser from OpenKit corresponding to the given facebook ID.
 	 * @param fbID FacebookID
