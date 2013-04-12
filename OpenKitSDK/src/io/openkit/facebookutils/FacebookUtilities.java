@@ -22,6 +22,8 @@ import io.openkit.asynchttp.OKJsonHttpResponseHandler;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import android.util.Log;
 import io.openkit.facebook.*;
 import io.openkit.facebook.Request.GraphUserCallback;
 import io.openkit.facebook.model.GraphUser;
@@ -69,10 +71,33 @@ public class FacebookUtilities
 	public void authorizeUserWithCustomID()
 	{
 		String customUserID = authenticateWithCustomService();
+		String userNickName = getUserNickName();
 		
+		authorizeUserWithCustomID(userNickName, customUserID, new CreateOKUserRequestHandler() {
+			
+			@Override
+			public void onSuccess(OKUser user) {
+				//OKUser was created successfully and is logged in
+				user.getOKUserID();
+			}
+			
+			@Override
+			public void onFail(Error error) {
+				// OKUser was not created and is not logged in
+				Log.d("OpenKit", "Error logging into OpenKit with custom ID: " + error);
+			}
+		});
 		
 	}
 	
+	/**
+	 * Create an OpenKit user tied to a custom (developer seeded) unique ID. 
+	 * You would use this if you want users to sign into OpenKit with a third party service, 
+	 * for example, a social network or existing user IDs you track.
+	 * @param userNick Nickname for the user
+	 * @param customID A unique identifer for this user. This should come from an authentication provider, for example, a social network or other service.
+	 * @param requestHandler Callback for whether the OKUser is created or not
+	 */
 	public static void authorizeUserWithCustomID(String userNick, String customID, final CreateOKUserRequestHandler requestHandler)
 	{
 		JSONObject jsonParams = new JSONObject();
