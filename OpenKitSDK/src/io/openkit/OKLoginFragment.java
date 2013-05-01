@@ -63,7 +63,8 @@ public class OKLoginFragment extends DialogFragment
 	public void onCreate(Bundle savedInstanceState) {
 		setRetainInstance(true);
 		super.onCreate(savedInstanceState);
-		setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+		setStyle(DialogFragment.STYLE_NORMAL, 0);
+		//setStyle(DialogFragment.STYLE_NO_TITLE, 0);
 		setCancelable(false);
 	}
 	

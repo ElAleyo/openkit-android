@@ -72,6 +72,8 @@ public class OKLeaderboardsListAdapter extends ArrayAdapter<OKLeaderboard> {
 		label2.setText(Integer.toString(currentLeaderboard.getPlayerCount()) + " players");
 		
 		imageView.setImageUrl(currentLeaderboard.getIconURL());
+		imageView.getLayoutParams().height = 128;
+		imageView.getLayoutParams().width = 128;
 		return row;
 	}
 	

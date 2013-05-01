@@ -27,9 +27,7 @@
         </activity>
         
         <!-- Declare the OpenKit activities as follows, these are required for OpenKit login and to show leaderboards -->
-        <activity
-            android:name="io.openkit.OKLoginActivity"
-            android:theme="@style/Theme.Transparent" />
+        <activity android:name="io.openkit.OKLoginActivity" />
         <activity android:name="io.openkit.leaderboards.OKLeaderboardsActivity" />
         <activity android:name="io.openkit.leaderboards.OKScoresActivity" />
         <activity android:name="io.openkit.user.OKUserProfileActivity" />

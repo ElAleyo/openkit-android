@@ -29,8 +29,8 @@ public class OKScoresActivity extends FragmentActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		int themeID = getResources().getIdentifier("OKActivityTheme", "style", getPackageName());
-		this.setTheme(themeID);
+		//int themeID = getResources().getIdentifier("OKActivityTheme", "style", getPackageName());
+		//this.setTheme(themeID);
 		//this.setTheme(R.style.OKActivityTheme);
 		super.onCreate(savedInstanceState);
 		

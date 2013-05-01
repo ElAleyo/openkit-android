@@ -19,7 +19,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="60dp"
-    android:background="@color/io_openkit_leaderboards_bgcolor"
+    android:background="@color/io_openkit_white"
     android:orientation="horizontal"
     android:padding="3dp" >
 

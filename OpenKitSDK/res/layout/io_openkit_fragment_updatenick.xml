@@ -18,7 +18,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/io_openkit_leaderboards_bgcolor"
+    android:background="@color/io_openkit_white"
     android:orientation="vertical"
     android:padding="6dp" >
 
@@ -31,7 +31,6 @@
 
     <TextView
         android:id="@+id/io_openkit_loggedInStringTextView"
-        style="@style/OKSmallLightGrayText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -40,14 +39,12 @@
 
     <TextView
         android:id="@+id/io_openkit_userNickTextView"
-        style="@style/OKHeadingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:padding="3dp" />
 
     <TextView
-        style="@style/OKSmallLightGrayText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -56,7 +53,6 @@
         android:textStyle="bold" />
 
     <TextView
-        style="@style/OKSmallLightGrayText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
